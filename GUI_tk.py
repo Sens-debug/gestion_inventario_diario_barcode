@@ -6,6 +6,8 @@ import db as con
 from time import sleep
 from copy import deepcopy
 import cv2
+
+
 import tkinter.messagebox as msb
 from tkinter.simpledialog import askinteger
 import sonido
