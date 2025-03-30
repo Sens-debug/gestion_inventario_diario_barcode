@@ -1,3 +1,5 @@
+#HOJA DE CODIGO NO UTILIZADA
+
 import tkinter as tk
 from tkinter import ttk
 import customtkinter as Ctk #ctk customTkinter
