@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
-from pyzbar.pyzbar import decode
+# from pyzbar.pyzbar import decode
+from zxing import BarCodeReader
 import db as con
 from time import sleep
 from copy import deepcopy
@@ -142,10 +143,10 @@ class Ventana_inventario(Plantilla_ventana):
         self.entry_id.grid(row=1, column=0, padx=5, pady=5)
 
           
-        self.label_barcode = Plantilla_label(self.frame_entrys, "Barcode*")
+        self.label_barcode = Plantilla_label(self.frame_entrys, "Barcode")
         self.label_barcode.grid(row=0, column=1, padx=5, pady=5)
 
-        self.entry_barcode = Plantilla_entry(self.frame_entrys, "Barcode*")
+        self.entry_barcode = Plantilla_entry(self.frame_entrys, "Barcode")
         # self.entry_barcode.config(state="readonly")
         self.entry_barcode.grid(row=1, column=1, padx=5, pady=5)
 
@@ -334,11 +335,13 @@ class Ventana_ventas(Plantilla_ventana):
         self.update_frame()
     
     def update_frame(self):
+        #Lector de codigo de barras del zxing
+        reader = BarCodeReader()
 
         var_ventas_grandes=self.var_ventas_grandes.get()
     
         frame = self.camara.get_frame() 
-        barcodes = decode(frame)
+        barcodes = reader.decode(frame)
         if frame is not None: 
             for barcode in barcodes:
                 (x,y,w,h)= barcode.rect

@@ -1,0 +1,14 @@
+opencv_python ==4.10.0.84
+
+pillow==11.0.0
+
+pysound==0.2
+
+python_barcode==0.15.1
+
+sounddevice==0.5.1
+
+xzing==requests
+
+numpy==2.2.1
+
